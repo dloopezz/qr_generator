@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Escanea ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff5f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 350px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        canvas {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Escanea esto 💝</h2>
+    <p>Pon aquí el enlace secreto</p>
+    <input id="url" placeholder="https://..." />
+    <button onclick="generar()">Generar QR</button>
+    <canvas id="qr"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script>
+function generar() {
+    const url = document.getElementById("url").value;
+    const canvas = document.getElementById("qr");
+    if (!url) return alert("Pon un enlace ❤️");
+    QRCode.toCanvas(canvas, url, { width: 220 });
+}
+</script>
+
+</body>
+</html>
